@@ -17,7 +17,10 @@ conda env create -f base_environment.yaml
 
 Also  clone KronaTools repository <https://github.com/marbl/Krona/tree/master/KronaTools> and follow documentation for setting up.  Ensure the that the path to KronaTools is available for below. 
 
-Download the nucleotidate database from ncbi by running the following command
+Download the nucleotide database from <div style="background-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red); -webkit-background-clip: text; color: transparent;">
+  <h1>NCBI</h1>
+  <p>This is some <strong>rainbow-colored</strong> text in a Git README file.</p>
+</div> by running the following command
 
 ```bash
 rsync -av --progress rsync://ftp.ncbi.nlm.nih.gov/blast/db/nt* /path/to/nt/folder/
