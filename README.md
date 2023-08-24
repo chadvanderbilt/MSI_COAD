@@ -1,6 +1,6 @@
 # MSI_COAD
 
-This repository is the code base to support the submission to Microbiome related to intratumoral microbiome in Colorectal Carcinoma.
+This repository is the code base to support the submission to Microbiome journal related to intratumoral microbiome in Colorectal Carcinoma, titled "The Microbiome of Microsatellite Instable Colorectal Carcinoma".
 
 
 The environment required to generate the taxonomy files must have the following bioinformatics packages in the $PATH installed with conda or otherwise:
@@ -61,3 +61,5 @@ bash awk.sh /home/user/microbiome_directory/tax_out
 This will generate a consolidated taxonomy file in /home/user/microbiome_directory/. 
 
 The final script ran takes the consolidated taxonomy file in and generate databases of species and genus for all of the cases with the readcount of each genus and species respectively tallied.   The script will generate these files as outputs and will also perform two class comparison alpha diverisity and enrichment analysis based on a manifest file that provides the case id (column  named 'DMP_ASSAY_ID') and additional binary column. The example provided has one collumn will be called MSI_H.  The manifest file can contain any number of classes and enrichment analysis and alpha diversity files will be generated for each comparison.
+
+All R scripts were developed with R version 4.2.0.  The shebang points to the R script which should be modified to match the users environment. To ensure all package dependencies are met in users environment, please run R_packages_install.R before executint the main script. 
