@@ -48,4 +48,15 @@ cd ./MSI_COAD
 bash microbiome_generate_subscript__LSF.sh /home/user/microbiome_directory
 ```
 
-This script will generate and submit jobs to LSF.  Upon completion of jobs, the /home/user/microbiome_directory/tax_out will contain microbiome taxonomy files named in same fashion as the fastq.gz input files.  
+This script will generate and submit jobs to LSF.  Upon completion of jobs, the /home/user/microbiome_directory/tax_out will contain microbiome taxonomy files named in same fashion as the fastq.gz input files. The intermediate blast files are deleted to save memory.  If user would like to keep the blast files, line 74 can be commented out.  
+
+The awk.sh script consolidates the taxonomy files to a single file where each row contains the file nam and can be executed as follows:
+
+```bash
+cd ./MSI_COAD
+bash awk.sh /home/user/microbiome_directory/tax_out
+```
+
+This will generate a consolidated taxonomy file in /home/user/microbiome_directory/. 
+
+
