@@ -23,7 +23,7 @@ Download the nucleotidate database from ncbi by running the following command
 rsync -av --progress rsync://ftp.ncbi.nlm.nih.gov/blast/db/nt* /path/to/nt/folder/
 ```
 
-This will download the tar files from the ncbi website.  The then need to be decompressed. 
+This will download the tar files from the ncbi website.  The files then need to be decompressed which will generate a summary file titled nt. 
 
 ```bash
 cd /path/to/nt/folder/
