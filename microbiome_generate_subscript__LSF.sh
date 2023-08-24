@@ -8,6 +8,7 @@ echo $BASE_PATH
 # Provde path to to executable KronaTools files
 export KT_BIN=/path/to/Krona/KronaTools
 export REF_GEN=/path/to/human/reference/genome.fasta
+export NT_DB=/path/to/nt/folder/
 
 
 # Script will genererate the following directories:
@@ -61,7 +62,7 @@ for file in "$BASE_PATH"/Project_*/*/*/*_R1_001.fastq.gz; do
    "$BASE_PATH"/fasta/"$case".fasta;" >> "$BASE_PATH"/sub_scripts/"$case".sh
    echo "blastn \
    -evalue 1e-10 -word_size 28 -db \
-   "$KT_BIN"/ntBlast/nt \
+   "$NT_DB"/nt \
    -query \
    "$BASE_PATH"/fasta/"$case".fasta \
    -outfmt 7 -perc_identity 90 -num_threads 4 > \
