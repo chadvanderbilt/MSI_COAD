@@ -4,16 +4,11 @@
 BASE_PATH=$1
 
 echo $BASE_PATH
-#Set R environment variables
-export LD_LIBRARY_PATH=/data/iacobuzc/vanderbc/anaconda3/lib:$LD_LIBRARY_PATH
-export R_LIBS_USER='/lila/data/iacobuzc/vanderbc/anaconda3/lib/R/library'
 
-# Provde path to to executable files
+# Provde path to to executable KronaTools files
 export BIN=/data/vanderbilt/silent_validation/scripts
 
 
-
-export GENE_LIST=/data/vanderbilt/silent_validation/manifest/cancerGeneList.tsv
 # Script will genererate the following directories:
 mkdir -p $BASE_PATH/fastq
 mkdir -p $BASE_PATH/BAM
