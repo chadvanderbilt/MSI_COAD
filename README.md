@@ -59,4 +59,4 @@ bash awk.sh /home/user/microbiome_directory/tax_out
 
 This will generate a consolidated taxonomy file in /home/user/microbiome_directory/. 
 
-
+The final script ran takes the consolidated taxonomy file in and generate databases of species and genus for all of the cases with the readcount of each genus and species respectively tallied.   The script will generate these files as outputs and will also perform two class comparison alpha diverisity and enrichment analysis based on a manifest file that provides the case id (column  named 'DMP_ASSAY_ID') and additional binary column. The example provided has one collumn will be called MSI_H.  The manifest file can contain any number of classes and enrichment analysis and alpha diversity files will be generated for each comparison.
