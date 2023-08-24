@@ -19,7 +19,7 @@ mkdir -p $BASE_PATH/blast
 mkdir -p $BASE_PATH/tax_out
 
 
-cd /data/vanderbilt/
+cd $BASE_PATH
 
 # Provide the path with wild cards to the fastq files
 
