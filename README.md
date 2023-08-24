@@ -17,11 +17,7 @@ conda env create -f base_environment.yaml
 
 Also  clone KronaTools repository <https://github.com/marbl/Krona/tree/master/KronaTools> and follow documentation for setting up.  Ensure the that the path to KronaTools is available for below. 
 
-Download the nucleotide database from 
-
-<div style="background-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red); -webkit-background-clip: text; color: transparent;">
-  <h1>NCBI</h1>
-</div>
+Download the nucleotide database from NCBI for blast queries. 
 
 
 ```bash
