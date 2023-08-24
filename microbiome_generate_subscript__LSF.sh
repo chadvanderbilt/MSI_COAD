@@ -6,7 +6,8 @@ BASE_PATH=$1
 echo $BASE_PATH
 
 # Provde path to to executable KronaTools files
-export BIN=/data/vanderbilt/silent_validation/scripts
+export KT_BIN=/path/to/Krona/KronaTools
+export REF_GEN=/path/to/human/reference/genome.fasta
 
 
 # Script will genererate the following directories:
@@ -44,7 +45,7 @@ for file in "$BASE_PATH"/Project_*/*/*/*_R1_001.fastq.gz; do
    echo "#BSUB -q cpuqueue" >> "$BASE_PATH"/sub_scripts/"$case".sh
    echo "#BSUB -n 8" >> "$BASE_PATH"/sub_scripts/"$case".sh
    echo "#BSUB -L /bin/bash" >> "$BASE_PATH"/sub_scripts/"$case".sh
-   echo "Ref=/data/vanderbilt/new/mutect_ref/Homo_sapiens_assembly19.fasta" >> "$BASE_PATH"/sub_scripts/"$case".sh
+   echo "Ref="$REF_GEN"" >> "$BASE_PATH"/sub_scripts/"$case".sh
    echo "cd "$BASE_PATH"" >> "$BASE_PATH"/sub_scripts/"$case".sh
    echo "bwa mem \
          -M \
@@ -60,13 +61,13 @@ for file in "$BASE_PATH"/Project_*/*/*/*_R1_001.fastq.gz; do
    "$BASE_PATH"/fasta/"$case".fasta;" >> "$BASE_PATH"/sub_scripts/"$case".sh
    echo "blastn \
    -evalue 1e-10 -word_size 28 -db \
-   /data/iacobuzc/vanderbc/Krona/KronaTools/ntBlast/ntBlast/nt \
+   "$KT_BIN"/ntBlast/nt \
    -query \
    "$BASE_PATH"/fasta/"$case".fasta \
    -outfmt 7 -perc_identity 90 -num_threads 4 > \
    "$BASE_PATH"/blast/"$case".fasta.bl;" >> "$BASE_PATH"/sub_scripts/"$case".sh
 
-   echo "/lila/data/vanderbilt/Krona/KronaTools/scripts/ClassifyBLAST.pl \
+   echo ""$KT_BIN"/scripts/ClassifyBLAST.pl \
    -s "$BASE_PATH"/blast/"$case".fasta.bl \
    -o "$BASE_PATH"/tax_out/"$case".fasta.bl.tax;" >> /"$BASE_PATH"/sub_scripts/"$case".sh
    echo "rm "$BASE_PATH"/blast/"$case".fasta.bl" >> /"$BASE_PATH"/sub_scripts/"$case".sh
