@@ -50,7 +50,7 @@ for file in "$BASE_PATH"/Project_*/*/*/*_R1_001.fastq.gz; do
    echo "#BSUB -n 8" >> "$BASE_PATH"/sub_scripts/"$case".sh
    echo "#BSUB -L /bin/bash" >> "$BASE_PATH"/sub_scripts/"$case".sh
    echo "Ref=/data/vanderbilt/new/mutect_ref/Homo_sapiens_assembly19.fasta" >> "$BASE_PATH"/sub_scripts/"$case".sh
-   echo "cd /data/vanderbilt/" >> "$BASE_PATH"/sub_scripts/"$case".sh
+   echo "cd "$BASE_PATH"" >> "$BASE_PATH"/sub_scripts/"$case".sh
    echo "bwa mem \
          -M \
          -t 8 \
